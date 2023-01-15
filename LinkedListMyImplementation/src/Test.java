@@ -12,7 +12,7 @@ public class Test {
         myList.addLast(40);
         myList.addLast(11);
 
-        System.out.println(myList.get(0));
+        System.out.println(myList.get(7));
 
 
 

@@ -5,5 +5,7 @@ public interface Linked<E> {
 
     E get(int i);
 
-   int size();
+    int size();
+
+    void remove(int i);
 }

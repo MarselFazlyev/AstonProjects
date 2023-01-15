@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MyLinkedList<E> implements Linked<E> {
     private Node<E> first = new Node<>();
@@ -11,6 +12,7 @@ public class MyLinkedList<E> implements Linked<E> {
 
     @Override
     public void addLast(E e) {
+        Objects.requireNonNull(e);
         if (first.getCurrentElement() == null) {
             first.setCurrentElement(e);
         } else {
@@ -18,9 +20,8 @@ public class MyLinkedList<E> implements Linked<E> {
             while (temp.getNext() != null) {
                 temp = temp.getNext();
             }
+            temp.setNext(new Node<>(e, temp, null));
             last = temp;
-            last.setCurrentElement(e);
-
         }
         size++;
     }
@@ -33,10 +34,10 @@ public class MyLinkedList<E> implements Linked<E> {
 
         int count = 0;
         temp = first;
-        while (temp.getNext()!=null) {
-           if (count==i) break;
-           temp=temp.getNext();
-           count++;
+        while (temp.getNext() != null) {
+            if (count == i) break;
+            temp = temp.getNext();
+            count++;
         }
         return temp.getCurrentElement();
     }
@@ -46,10 +47,15 @@ public class MyLinkedList<E> implements Linked<E> {
         return this.size;
     }
 
+    @Override
+    public void remove(int i) {
+        //todo сделать после перестрелки
+    }
+
 
     @Override
     public void addFirst(E e) {
-
+        //todo сделать после перестрелки
     }
 
     public String toString() {
